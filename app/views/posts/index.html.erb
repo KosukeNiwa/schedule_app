@@ -25,8 +25,8 @@
                 <tr>
                     <td><%= post.id %></td>
                     <td><%= post.title %></td>            
-                    <td><%= post.start.to_s(:date_jp) %></td>
-                    <td><%= post.end.to_s(:date_jp) %></td>
+                    <td><%= post.start_day.to_s(:date_jp) %></td>
+                    <td><%= post.end_day.to_s(:date_jp) %></td>
                     <td><%= post.all_day %></td>
                     <td><%= post.updated_at.to_s(:datetime_jp) %></td>
                     <td><%= link_to("確認", "/posts/#{post.id}") %></td>

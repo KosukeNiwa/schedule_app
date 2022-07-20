@@ -5,5 +5,5 @@
      attributes:
        post:
          title: タイトル
-         start: 開始日
-         end: 終了日
+         start_day: 開始日
+         end_day: 終了日

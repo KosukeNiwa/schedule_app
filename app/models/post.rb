@@ -14,7 +14,7 @@ class Post < ApplicationRecord
     end
 
     def start_today_check
-      if :start < Date.today
+      if start < Date.today
         errors.add(:start, "は本日以降の日付を入力してください")
       end
       

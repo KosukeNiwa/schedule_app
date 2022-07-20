@@ -1,5 +1,3 @@
-require "date"
-
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -19,7 +17,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(title: params[:title], start: params[:start], end: params[:end], memo: params[:memo])
+    @post = Post.new(title: params[:title], start_day: params[:start_day], end_day: params[:end_day], memo: params[:memo])
 
     if @post.save
       flash[:notice] = "スケジュールが登録されました"
