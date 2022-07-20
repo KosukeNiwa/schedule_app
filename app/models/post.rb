@@ -1,21 +1,21 @@
 class Post < ApplicationRecord
     validates :title, {presence: true}
-    validates :start, {presence: true}
-    validates :end, {presence: true}
+    validates :start_day, {presence: true}
+    validates :end_day, {presence: true}
 
     validate :start_end_check
     validate :start_today_check
 
     def start_end_check
-      if :end < :start
-        errors.add(:end, "は開始日より後の日付を入力してください")
+      if end_day < start_day
+        errors.add(:end_day, "は開始日より後の日付を入力してください")
       end
       
     end
 
     def start_today_check
-      if start < Date.today
-        errors.add(:start, "は本日以降の日付を入力してください")
+      if start_day < Date.today
+        errors.add(:start_day, "は本日以降の日付を入力してください")
       end
       
     end
