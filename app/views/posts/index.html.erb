@@ -1,1 +1,51 @@
-<h1>
+<div class = "posts-index">
+    <div class = "main_container">
+        <h2>スケジュール一覧</h2>
+
+        <% if flash[:notice] %>
+        <div class="flash">
+            <%= flash[:notice] %>
+        </div>
+        <% end %>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th>終日</th>
+                <th>スケジュール更新日時</th>
+                <th>確認</th>
+                <th>編集</th>
+                <th>削除</th>
+            </tr>
+
+            <% @posts.each do |post| %>
+                <tr>
+                    <td><%= post.id %></td>
+                    <td><%= post.title %></td>            
+                    <td><%= post.start.to_s(:date_jp) %></td>
+                    <td><%= post.end.to_s(:date_jp) %></td>
+                    <td><%= post.all_day %></td>
+                    <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+                    <td><%= link_to("確認", "/posts/#{post.id}") %></td>
+                    <td><%= link_to("編集", "/posts/#{post.id}/edit") %></td>
+                    <td><%= link_to("削除", "/posts/#{post.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}) %></td>
+                
+                </tr>
+            
+            <% end %>
+
+        </table>
+
+        <ul>
+            <li>
+                <%= link_to("スケジュール新規登録", "/posts/new") %>
+            </li>
+            
+        </ul>
+
+    </div>
+
+</div>

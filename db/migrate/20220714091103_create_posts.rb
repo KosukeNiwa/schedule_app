@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.date :start
       t.date :end
-      t.string :all_day # 要修正
+      t.string :all_day
       t.text :memo
 
       t.timestamps
