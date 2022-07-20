@@ -10,15 +10,15 @@
         <table>
             <tr>
                 <th>タイトル</th>
-                <td><input name="title"></td>
+                <td><input name="title" value="<%= @post.title %>"></td>
             </tr>
             <tr>
                 <th>開始日</th>
-                <td><input name="start_day" type="date"></td>
+                <td><input name="start_day" type="date" value="<%= @post.start_day %>"></td>
             </tr>
             <tr>
                 <th>終了日</th>
-                <td><input name="end_day" type="date"></td>
+                <td><input name="end_day" type="date" value="<%= @post.start_day %>"</td>
             </tr>
             <tr>
                 <th>終日</th>
@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <th>スケジュールメモ</th>
-                <td><textarea name="memo"></textarea></td>
+                <td><textarea name="memo" ><%= @post.memo %></textarea></td>
             </tr>
 
         </table>

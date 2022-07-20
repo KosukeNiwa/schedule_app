@@ -20,10 +20,10 @@ class PostsController < ApplicationController
     @post = Post.new(title: params[:title], start_day: params[:start_day], end_day: params[:end_day], memo: params[:memo])
     
     @post.title = params[:title]
-    @post.start_day = @params[:start_day]
-    @post.end_day = @params[:end_day]
-    @post.all_day = @params[:all_day]
-    @post.memo = @params[:memo]    
+    @post.start_day = params[:start_day]
+    @post.end_day = params[:end_day]
+    @post.all_day = params[:all_day]
+    @post.memo = params[:memo]    
 
     if @post.save
       flash[:notice] = "スケジュールが登録されました"
@@ -40,10 +40,10 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
 
     @post.title = params[:title]
-    @post.start_day = @params[:start_day]
-    @post.end_day = @params[:end_day]
-    @post.all_day = @params[:all_day]
-    @post.memo = @params[:memo]    
+    @post.start_day = params[:start_day]
+    @post.end_day = params[:end_day]
+    @post.all_day = params[:all_day]
+    @post.memo = params[:memo]    
 
     if @post.save
       flash[:notice] = "スケジュールを編集しました"
