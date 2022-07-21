@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    @post = Post.find_by(id: params[:id])
   end
 
   def new
@@ -17,14 +16,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(title: params[:title], start_day: params[:start_day], end_day: params[:end_day], all_day: params[:all_day], memo: params[:memo])
+    @post = Post.new(params.require(:post).permit(:title, :start_day, :end_day, :all_day, :memo))
     
-    @post.title = params[:title]
-    @post.start_day = params[:start_day]
-    @post.end_day = params[:end_day]
-    @post.all_day = params[:all_day]
-    @post.memo = params[:memo]    
-
     if @post.save
       flash[:notice] = "スケジュールが登録されました"
       redirect_to :posts
@@ -40,13 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
 
-    @post.title = params[:title]
-    @post.start_day = params[:start_day]
-    @post.end_day = params[:end_day]
-    @post.all_day = params[:all_day]
-    @post.memo = params[:memo]    
-
-    if @post.save
+    if @post.update(params.require(:post).permit(:title, :start_day, :end_day, :all_day, :memo))
       flash[:notice] = "スケジュールを編集しました"
       redirect_to :posts
 
