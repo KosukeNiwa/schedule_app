@@ -43,9 +43,9 @@
                     </td>
 
                     <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-                    <td><%= link_to("確認", "/posts/#{post.id}") %></td>
-                    <td><%= link_to("編集", "/posts/#{post.id}/edit") %></td>
-                    <td><%= link_to("削除", "/posts/#{post.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}) %></td>
+                    <td><%= link_to "確認", @post %></td>
+                    <td><%= link_to "編集", :edit_post %></td>
+                    <td><%= link_to "削除", @post, method: :delite, data: {confirm: "本当に削除しますか？"} %></td>
                 
                 </tr>
             
@@ -55,7 +55,7 @@
 
         <ul>
             <li>
-                <%= link_to("スケジュール新規登録", "/posts/new") %>
+                <%= link_to "スケジュール新規登録", :new_post" %>
             </li>
             
         </ul>

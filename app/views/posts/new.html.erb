@@ -7,7 +7,7 @@
         </div>
     <% end %>
 
-    <%= form_tag("/posts/create") do %>
+    <%= form_with model: @post do |f| %>
 
         <% @post.errors.full_messages.each do |message| %>
             <%= message %><br>
@@ -15,35 +15,39 @@
 
         <table>
             <tr>
-                <th>タイトル</th>
-                <td><input name="title" value="<%= @post.title %>"></td>
-            </tr>
-            <tr>
-                <th>開始日</th>
-                <td><input name="start_day" type="date" value="<%= @post.start_day %>"></td>
-            </tr>
-            <tr>
-                <th>終了日</th>
-                <td><input name="end_day" type="date" value="<%= @post.start_day %>"</td>
-            </tr>
-            <tr>
-                <th>終日</th>
-                <td><input name="all_day" type="checkbox"><br>終日の場合はチェックを入れます</td>
-            </tr>
-            <tr>
-                <th>スケジュールメモ</th>
-                <td><textarea name="memo" ><%= @post.memo %></textarea></td>
+                <th><%= f.label :title, "タイトル" %></th>
+                <td><%= f.text_field :title %></td>
             </tr>
 
+            <tr>
+                <th><%= f.label :start_day, "開始日" %></th>
+                <td><%= f.date_field :start_day %></td>
+            </tr>
+
+            <tr>
+                <th><%= f.label :end_day, "終了日" %></th>
+                <td><%= f.date_field :end_day %></td>
+            </tr>
+
+            <tr>
+                <th><%= f.label :all_day, "終日" %></th>
+                <td><%= f.check_box :all_day, {}, checked_value='true', unchecked_value='false' %><br>終日の場合はチェックを入れます。</td>
+            </tr>
+
+            <tr>
+                <th><%= f.label :memo, "スケジュールメモ" %></th>
+                <td><%= f.text_area :memo %></td>
+            </tr>        
+        
         </table>
 
     <ul>
         <li>
-            <input class="button" type="submit" value="スケジュールを新規登録する">
+            <%= f.submit "スケジュールを新規登録する" %>
         </li>
 
         <li>
-            <%= link_to("スケジュール一覧に戻る", "/posts/index") %>
+            <%= link_to "スケジュール一覧に戻る", :posts %>
         </li>
 
     </ul>

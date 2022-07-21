@@ -34,15 +34,15 @@
 
     <ul>
         <li>
-            <%= link_to("スケジュール一覧に戻る", "/posts/index") %><br>
+            <%= link_to "スケジュール一覧に戻る", :posts %><br>
         </li>
 
         <li>
-            <%= link_to("スケジュールを編集する", "/posts/#{@post.id}/edit") %><br>
+            <%= link_to "スケジュールを編集する", :edit_post %><br>
         </li>
 
         <li>
-            <%= link_to("スケジュールを削除する", "/posts/#{@post.id}/destroy", method: :post, data: {confirm: "本当に削除しますか？"}) %><br>
+            <%= link_to "スケジュールを削除する", @post, method: :delite, data: {confirm: "本当に削除しますか？"} %><br>
         </li>
     
     </ul>

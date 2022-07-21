@@ -27,11 +27,11 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "スケジュールが登録されました"
-      redirect_to("/posts/index")
+      redirect_to :posts
 
     else
       flash[:notice] = "スケジュールを登録できませんでした"
-      render("posts/new")
+      render "new"
 
     end
 
@@ -48,12 +48,11 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "スケジュールを編集しました"
-      redirect_to("/posts/index")
+      redirect_to :posts
 
     else
       flash[:notice] = "スケジュールを編集できませんでした"
-      render("posts/edit")
-
+      render "edit"
     end
 
   end
@@ -62,7 +61,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "スケジュールを削除しました"
-    redirect_to("/posts/index")
-  end
-    
+    redirect_to :posts
+  
+  end  
+
 end
