@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ScheduleApp</title>
+    <title>Ruby on Rails スケジュール管理アプリ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= csp_meta_tag %> 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+        <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
+
+    <main>
+    
+    </main>
+    
     <%= yield %>
+
+    <footer>
+      <h1>
+        現在の日時: <span class = "today_time"><%= Date.today.strftime("%Y年%m月%d日") %></span>
+
+        <% if controller.action_name == "index" %>
+          スケジュール合計: <%= Post.count %>
+        
+        <% else %>
+
+        <% end %>
+      
+      </h1>
+    </footer>
+
   </body>
 </html>

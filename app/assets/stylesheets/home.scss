@@ -1,0 +1,76 @@
+/* 共通レイアウト -------------------------------------------------- */
+header, footer {
+    background-color: #c52f24;
+    color: #fff;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 25px;
+
+  }
+
+table th, table td {
+    border: 1px solid black;
+  }
+
+th {
+    background-color: #ffdfdf;
+    padding: 10px 20px;
+
+}
+
+td {
+    background-color: #f1c8c861;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+}
+
+.main_container {
+    margin: 50px 15px;
+}
+
+.main_container input {
+}
+
+.main_container ul {
+    list-style: none;
+}
+
+.button {
+    font-size: 16px;
+    padding: 5px;
+}
+
+.today_time {
+    margin-right: 50px;
+}
+
+/* フラッシュ -------------------------------------------------- */
+.flash {
+    padding: 15px 0;
+    text-align: center;
+    width: 400px;
+    margin-bottom: 25px;
+}
+
+.flash_success {
+    background-color: #98ecaa7a;
+    border: 2px solid #5cd075;
+}
+
+.flash_error {
+    background-color: #ec98ac8f;
+    border: 2px solid #ec7592;
+}
