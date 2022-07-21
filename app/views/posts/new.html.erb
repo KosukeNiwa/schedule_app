@@ -1,6 +1,12 @@
 <div class = "main_container">
     <h2>スケジュール新規作成</h2>
 
+    <% if flash[:notice] %>
+        <div class="flash flash_error">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+
     <%= form_tag("/posts/create") do %>
 
         <% @post.errors.full_messages.each do |message| %>
@@ -22,7 +28,7 @@
             </tr>
             <tr>
                 <th>終日</th>
-                <td><input type="checkbox"><br>終日の場合はチェックを入れます</td>
+                <td><input name="all_day" type="checkbox"><br>終日の場合はチェックを入れます</td>
             </tr>
             <tr>
                 <th>スケジュールメモ</th>

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(title: params[:title], start_day: params[:start_day], end_day: params[:end_day], memo: params[:memo])
+    @post = Post.new(title: params[:title], start_day: params[:start_day], end_day: params[:end_day], all_day: params[:all_day], memo: params[:memo])
     
     @post.title = params[:title]
     @post.start_day = params[:start_day]
@@ -30,6 +30,7 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
 
     else
+      flash[:notice] = "スケジュールを登録できませんでした"
       render("posts/new")
 
     end
@@ -50,6 +51,7 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
 
     else
+      flash[:notice] = "スケジュールを編集できませんでした"
       render("posts/edit")
 
     end

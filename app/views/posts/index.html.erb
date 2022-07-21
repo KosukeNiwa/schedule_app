@@ -2,11 +2,17 @@
     <div class = "main_container">
         <h2>スケジュール一覧</h2>
 
-        <% if flash[:notice] %>
-        <div class="flash">
+    <% if flash[:notice] == "スケジュールが登録されました" || flash[:notice] == "スケジュールを編集しました" %>
+        <div class="flash flash_success">
             <%= flash[:notice] %>
         </div>
-        <% end %>
+
+    <% elsif flash[:notice] == "スケジュールを削除しました"  %>
+        <div class="flash flash_error">
+            <%= flash[:notice] %>
+        </div>
+
+    <% end %>
 
         <table>
             <tr>
@@ -27,7 +33,15 @@
                     <td><%= post.title %></td>            
                     <td><%= post.start_day.to_s(:date_jp) %></td>
                     <td><%= post.end_day.to_s(:date_jp) %></td>
-                    <td><%= post.all_day %></td>
+                    <td>
+                        <% if post.all_day %>
+                            ○
+                        <% else %>
+
+                        <% end %>
+
+                    </td>
+
                     <td><%= post.updated_at.to_s(:datetime_jp) %></td>
                     <td><%= link_to("確認", "/posts/#{post.id}") %></td>
                     <td><%= link_to("編集", "/posts/#{post.id}/edit") %></td>

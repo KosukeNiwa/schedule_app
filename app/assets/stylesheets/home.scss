@@ -10,6 +10,8 @@ header, footer {
 
 table {
     border-collapse: collapse;
+    margin-top: 25px;
+
   }
 
 table th, table td {
@@ -55,8 +57,17 @@ footer {
 /* フラッシュ -------------------------------------------------- */
 .flash {
     padding: 15px 0;
-    color: white;
-    background: rgb(251, 170, 88);
     text-align: center;
     width: 400px;
-  }
+    margin-bottom: 25px;
+}
+
+.flash_success {
+    background-color: #98ecaa7a;
+    border: 2px solid #5cd075;
+}
+
+.flash_error {
+    background-color: #ec98ac8f;
+    border: 2px solid #ec7592;
+}

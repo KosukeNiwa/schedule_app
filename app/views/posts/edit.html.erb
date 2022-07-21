@@ -1,7 +1,13 @@
 <div class = "main_container">
     <h2>スケジュール編集</h2>
 
-    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <% if flash[:notice] %>
+        <div class="flash flash_error">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+
+    <%= form_with model: @post do |f| %>
 
         <% @post.errors.full_messages.each do |message| %>
             <%= message %><br>
@@ -10,23 +16,23 @@
         <table>
             <tr>
                 <th>タイトル</th>
-                <td><input name="title" value="<%= @post.title %>"></td>
+                <td><%= f.text_field :title, value: "post[:title]" %></td>
             </tr>
             <tr>    
                 <th>開始日</th>
-                <td><input name="start_day" type="date" value="<%= @post.start_day %>"></td>
+                <td><%= f.date_select :start_day, value: "post[:start_day]" %></td>
             </tr>
             <tr>
                 <th>終了日</th>
-                <td><input name="end_day" type="date" value="<%= @post.end_day %>"></td>
+                <td><%= f.date_select :end_day, value: "post[:end_day]" %></td>
             </tr>
             <tr>
                 <th>終日</th>
-                <td><input type="checkbox"><br>終日の場合はチェックを入れます</td>
+                <td><%= f.check_box :all_day, value: "post[:all_day]" %></td>
             </tr>
             <tr>
                 <th>スケジュールメモ</th>
-                <td><textarea name="memo"><%= @post.memo %></textarea></td>
+                <td><%= f.text_area :memo, value: "post[:memo]" %></td>
             </tr>
 
         </table>   
